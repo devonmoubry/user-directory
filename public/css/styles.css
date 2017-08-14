@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  color: gray;
 }
 
 .container {
@@ -7,7 +8,9 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 10px;
 }
+
 .user-index-container {
   border: 1px solid grey;
   flex-basis: 20%;
@@ -22,4 +25,32 @@ body {
 
 .index-jobless {
   color: red;
+}
+
+.user-jobless {
+  color: red;
+}
+
+.avatar {
+  border: 1px solid gray;
+  border-radius: 76px;
+}
+
+.skills-container {
+  display: flex;
+  align-content: flex-start;
+}
+
+.skills {
+  display: inline-block;
+  margin-right: 2px;
+}
+
+ul {
+  padding: 0;
+  display: inline-block;
+}
+
+li {
+  list-style: none;
 }

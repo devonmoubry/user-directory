@@ -14,14 +14,20 @@ app.set('view engine', 'mustache');
 app.use('/public', express.static('public'));
 
 app.get('/', (request, response) => {
-  console.log(users);
   response.render('users', users);
 })
 
-app.get('/users/:username/', function (req, res) {
+app.get('/:username', (request, response) => {
   // Access username via: req.params.username
-  console.log(req.params.username);
-  response.render('users', users);
+  let usersData = users.users;
+  let userInfo = {};
+  for (let i = 0; i < usersData.length; i++) {
+    if (usersData[i].username === request.params.username) {
+      console.log('win', request.params.username);
+      userInfo = usersData[i];
+    }
+  }
+  response.render('user', {userInfo: userInfo});
 })
 
 app.listen(3000, function () {

@@ -16,21 +16,38 @@
   <body>
 
     <div class="container">
-      {{#users}}
         <div class="user-container">
-          {{#job}}
-          <img src="{{avatar}}" alt="">
+          {{#userInfo}}
+          <img class="avatar" src="{{avatar}}" alt="">
           <h2 class="user-name">{{name}}</h2>
-          <p>{{address.country}}<span class="user-job">{{job}}</span></p>
-          <p class="user-co">{{company}}</p>
-          {{/job}}
-          {{^job}}
-          <img src="{{avatar}}" alt="">
-          <h2 class="user-name">{{name}}</h2>
-          <p>{{address.country}}<span class="user-jobless">Available for hire</span></p>
-          {{/job}}
+          <p>{{address.city}}, {{address.country}} |
+            {{#job}}
+              <span class="user-job">{{job}}, </span>
+              <span class="user-co">{{company}}</span>
+            </p>
+            {{/job}}
+            {{^job}}
+              <span class="user-jobless">Available for hire</span>
+            </p>
+            {{/job}}
+            <p>{{email}} | {{phone}}</p>
+            <div class="ed">
+                {{#university}}
+                  <p><strong>Education</strong> <span>{{university}}</span></p>
+                {{/university}}
+                {{^university}}
+                {{/university}}
+            </div>
+            <div class="skills-container">
+                <span class="skills"> <strong>Skills</strong></span>
+                <ul>
+                  {{#skills}}
+                  <li>{{.}}</li>
+                  {{/skills}}
+                </ul>
+            </div>
+          {{/userInfo}}
         </div>
-      {{/users}}
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
