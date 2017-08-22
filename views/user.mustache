@@ -20,7 +20,7 @@
           {{#userInfo}}
           <img class="avatar" src="{{avatar}}" alt="">
           <h2 class="user-name">{{name}}</h2>
-          <p>{{address.city}}, {{address.country}} |
+          <p>{{#address.city}}{{address.city}},{{/address.city}} {{address.country}} |
             {{#job}}
               <span class="user-job">{{job}}, </span>
               <span class="user-co">{{company}}</span>
